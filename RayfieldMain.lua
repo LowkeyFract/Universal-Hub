@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
    DisableRayfieldPrompts = false,
    DisableBuildWarnings = false,
    ConfigurationSaving = {
-      Enabled = true,
+      Enabled = false,
       FolderName = nil,
       FileName = "UniversalConfig"
    },
