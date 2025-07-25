@@ -1,4 +1,4 @@
-local baseUrl = "https://raw.githubusercontent.com/LowkeyFractAd/Universal-Hub/master/"
+local baseUrl = "https://raw.githubusercontent.com/LowkeyFractAd/Universal-Hub/main/"
 
 local RayfieldMainCode = game:HttpGet(baseUrl .. "RayfieldMain.lua")
 local f1, err1 = loadstring(RayfieldMainCode)
