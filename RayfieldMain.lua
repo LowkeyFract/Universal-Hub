@@ -32,4 +32,3 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-return Window
