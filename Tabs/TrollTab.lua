@@ -1,5 +1,5 @@
 return function(Window)
-   local TrollTab = Window:CreateTab("Troll", "angry")
+   local TrollTab = Window:CreateTab("Trosll", "angry")
    local Players = game:GetService("Players")
    local PlayerList = {}
    for _, player in pairs(Players:GetPlayers()) do
