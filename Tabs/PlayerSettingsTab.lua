@@ -1,27 +1,44 @@
 return function(Window)
    local PlayerSettings = Window:CreateTab("Player Settings", "user-round-cog")
-   local WalkSpeed = PlayerSettings:CreateSlider({
+
+   local WalkSpeedInput = PlayerSettings:CreateTextbox({
       Name = "Walkspeed",
-      Range = {16, 500},
-      Increment = 1,
-      Suffix = " Walkspeed",
-      CurrentValue = 16,
-      Flag = "WalkspeedSlider",
-      Callback = function(Value)
-         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+      Placeholder = "Enter Walkspeed (16-500)",
+      Text = "16",
+      Numeric = true, -- optional, if Rayfield supports it to restrict input
+      Flag = "WalkspeedTextbox",
+      Callback = function(value)
+         local num = tonumber(value)
+         if num and num >= 16 and num <= 500 then
+            local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+               humanoid.WalkSpeed = num
+            end
+         else
+            -- Optionally notify user of invalid input
+         end
       end
    })
-   local JumpPower = PlayerSettings:CreateSlider({
+
+   local JumpPowerInput = PlayerSettings:CreateTextbox({
       Name = "Jump Power",
-      Range = {50, 500},
-      Increment = 1,
-      Suffix = " Jump Height",
-      CurrentValue = 50,
-      Flag = "JumpHeightSlider",
-      Callback = function(Value)
-         game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+      Placeholder = "Enter Jump Power (50-500)",
+      Text = "50",
+      Numeric = true,
+      Flag = "JumpPowerTextbox",
+      Callback = function(value)
+         local num = tonumber(value)
+         if num and num >= 50 and num <= 500 then
+            local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+               humanoid.JumpPower = num
+            end
+         else
+            -- Optionally notify user of invalid input
+         end
       end
    })
+
    local InfiniteJump = PlayerSettings:CreateToggle({
       Name = "Infinite Jump",
       CurrentValue = false,
